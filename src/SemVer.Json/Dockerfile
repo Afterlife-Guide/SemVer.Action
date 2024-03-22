@@ -8,8 +8,4 @@ RUN dotnet publish ./SemVer.Json.csproj -c Release -o out --no-self-contained
 
 FROM mcr.microsoft.com/dotnet/runtime:8.0-jammy-chiseled
 COPY --from=build-env /app/out .
-
-# set to use the non-root USER
-USER $APP_UID 
-
 ENTRYPOINT [ "dotnet", "/SemVer.Json.dll" ]
