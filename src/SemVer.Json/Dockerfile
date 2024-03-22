@@ -6,6 +6,6 @@ WORKDIR /app
 COPY . ./
 RUN dotnet publish ./SemVer.Json.csproj -c Release -o out --no-self-contained
 
-FROM mcr.microsoft.com/dotnet/runtime:8.0-jammy-chiseled
+FROM mcr.microsoft.com/dotnet/runtime:8.0-alpine
 COPY --from=build-env /app/out .
 ENTRYPOINT [ "dotnet", "/SemVer.Json.dll" ]
