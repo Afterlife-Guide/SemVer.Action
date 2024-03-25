@@ -39,7 +39,7 @@ jobs:
         
       - name: Update docker image tag version in action.yml
         run: |
-          sed -i "s/image: 'docker:\/\/ghcr.io\/Afterlife-Guide\/SemVer.Action:.*$/docker:\/\/ghcr.io\/Afterlife-Guide\/SemVer.Action:${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}/'" action.yml
+          sed -i "s/image: 'docker:\/\/ghcr.io\/AfterLife-Guide\/SemVer.Action:.*/image: 'docker:\/\/ghcr.io\/AfterLife-Guide\/SemVer.Action:${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}'/" action.yml
 
       - name: Commit changelog, manifest and action definition files
         id: make-commit
