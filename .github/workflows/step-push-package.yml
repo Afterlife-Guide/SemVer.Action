@@ -24,10 +24,16 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           
+      - name: Lowercase Tag
+        id: lowercase_tag
+        run: |
+          echo "repo_owner=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          echo "container_name=$(echo 'SemVer.Action' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+          
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./src/SemVer.Json/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/SemVer.Action:${{ inputs.version }}
+          tags: ghcr.io/${{ env.repo_owner }}/${{ env.container_name }}:${{ inputs.version }}
