@@ -29,7 +29,7 @@ jobs:
       checkout-ref: ${{ github.base_ref }}
   
   tag-release:
-    needs: [push-package]
+    needs: [get-version,push-package]
     uses: ./.github/workflows/step-tag-release.yml
     with:
       version: ${{ needs.get-version.outputs.version }}
