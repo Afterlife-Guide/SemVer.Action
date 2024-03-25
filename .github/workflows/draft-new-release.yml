@@ -24,7 +24,7 @@ jobs:
         run: git checkout -b release/${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}
         
       - name: Update Version Number
-        uses: Afterlife-Guide/SemVer.Action@0.1.0.1
+        uses: Afterlife-Guide/SemVer.Action@0.2.0.3
         with:
           path: semver.json
           major-version: ${{ github.event.inputs.major_version }}
@@ -36,13 +36,17 @@ jobs:
         uses: thomaseizinger/keep-a-changelog-new-release@2.0.0
         with:
           tag: ${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}
+        
+      - name: Update docker image tag version in action.yml
+        run: |
+          sed -i "s/image: 'docker:\/\/ghcr.io\/AfterLife-Guide\/SemVer.Action:.*/image: 'docker:\/\/ghcr.io\/AfterLife-Guide\/SemVer.Action:${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}'/" action.yml
 
-      - name: Commit changelog and manifest files
+      - name: Commit changelog, manifest and action definition files
         id: make-commit
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "no-reply@after-life.co"
-          git add CHANGELOG.md semver.json
+          git add CHANGELOG.md semver.json action.yml
           git commit --message "Prepare release ${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}"
 
           echo "commit=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT

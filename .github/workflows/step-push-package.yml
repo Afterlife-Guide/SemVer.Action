@@ -1,0 +1,33 @@
+﻿on:
+  workflow_call: 
+    inputs:
+      version:
+        description: 'Version to deploy'
+        required: true
+        type: string
+      checkout-ref:
+        description: 'The commit SHA to checkout' 
+        required: true
+        type: string
+    
+jobs:
+  push-container:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./src/SemVer.Json/Dockerfile
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/SemVer.Action:${{ inputs.version }}

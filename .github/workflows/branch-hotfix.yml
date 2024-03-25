@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "patch_version=$(($(cat semver.json | jq -r '.patch')+1))" > $GITHUB_OUTPUT
       - name: Store New Version
-        uses: Afterlife-Guide/SemVer.Action@0.1.0.1
+        uses: Afterlife-Guide/SemVer.Action@0.2.0.3
         with:
           path: semver.json
           major-version: ${{ needs.get-version.outputs.major }}
@@ -44,11 +44,16 @@ jobs:
         uses: thomaseizinger/keep-a-changelog-new-release@2.0.0
         with:
           tag: ${{ needs.get-version.outputs.major }}.${{ needs.get-version.outputs.minor }}.${{ steps.increment_version.outputs.patch_version }}.${{ github.run_number }}
+          
+      - name: Update docker image tag version in action.yml
+        run: |
+          sed -i "s/image: 'docker:\/\/ghcr.io\/AfterLife-Guide\/SemVer.Action:.*/image: 'docker:\/\/ghcr.io\/AfterLife-Guide\/SemVer.Action:${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ steps.increment_version.outputs.patch_version }}.${{ github.run_number }}'/" action.yml
+          
       - name: Commit Changes
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "no-reply@after-life.co"
-          git add CHANGELOG.md semver.json
+          git add CHANGELOG.md semver.json action.yml
           git commit --message "Bump Version to ${{ needs.get-version.outputs.major }}.${{ needs.get-version.outputs.minor }}.${{ steps.increment_version.outputs.patch_version }}.${{ github.run_number }}"
 
       - name: Push Version
