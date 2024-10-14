@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4.6] - 2024-10-14
+
 ### Fixed
 
 - Removed all usage of `set-output` in GitHub Actions.
@@ -25,18 +27,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0.1] - 2024-03-22
 
-[Unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.3.8...HEAD
-
+[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.4.6...HEAD
+[1.0.4.6]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.3.8...1.0.4.6
 [1.0.3.8]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.2.7...1.0.3.8
-
 [1.0.2.7]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.1.6...1.0.2.7
-
 [1.0.1.6]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.0.5...1.0.1.6
-
 [1.0.0.5]: https://github.com/Afterlife-Guide/SemVer.Action/compare/0.2.0.3...1.0.0.5
-
 [0.2.0.3]: https://github.com/Afterlife-Guide/SemVer.Action/compare/0.1.1.2...0.2.0.3
-
 [0.1.1.2]: https://github.com/Afterlife-Guide/SemVer.Action/compare/0.1.0.1...0.1.1.2
-
 [0.1.0.1]: https://github.com/Afterlife-Guide/SemVer.Action/compare/4504613496b5d76d18531a4c41b3b88d241c41c2...0.1.0.1
