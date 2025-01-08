@@ -1,7 +1,4 @@
-﻿using FsCheck;
-using FsCheck.Xunit;
-
-namespace SemVer.Json.UnitTests;
+﻿namespace SemVer.Json.UnitTests;
 
 public class SemVerTests
 {
