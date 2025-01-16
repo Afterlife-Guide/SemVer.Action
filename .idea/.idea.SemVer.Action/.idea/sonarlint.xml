@@ -3,6 +3,6 @@
   <component name="SonarLintProjectSettings">
     <option name="bindingEnabled" value="true" />
     <option name="projectKey" value="Afterlife-Guide_SemVer.Action" />
-    <option name="serverId" value="sonarcloud" />
+    <option name="serverId" value="AfterLife" />
   </component>
 </project>
