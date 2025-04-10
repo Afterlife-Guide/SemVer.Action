@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.9.11] - 2025-04-10
+
 ## [1.0.8.10] - 2025-03-13
 
 ## [1.0.7.9] - 2025-02-12
@@ -35,7 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0.1] - 2024-03-22
 
-[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.8.10...HEAD
+[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.9.11...HEAD
+[1.0.9.11]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.8.10...1.0.9.11
 [1.0.8.10]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.7.9...1.0.8.10
 [1.0.7.9]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.6.8...1.0.7.9
 [1.0.6.8]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.5.7...1.0.6.8
