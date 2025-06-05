@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed Dependabot configuration to correctly locate Dockerfile for dependency tracking. [#195](https://github.com/Afterlife-Guide/SemVer.Action/issues/195)
+
 ## [1.0.9.11] - 2025-04-10
 
 ## [1.0.8.10] - 2025-03-13
