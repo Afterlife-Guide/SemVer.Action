@@ -27,7 +27,7 @@ updates:
       - "dependencies"
         
   - package-ecosystem: "docker"
-    directory: "/" # Location of package manifests
+    directory: "/src/SemVer.Json" # Location of package manifests
     schedule:
       interval: "daily"
     labels:
