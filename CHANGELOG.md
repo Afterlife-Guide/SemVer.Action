@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Upgraded to .Net 9 as the latest Docker image was not compatible with .Net 8. (#204)
+
 ## [1.1.0.12] - 2025-06-05
 
 ### Fixed
