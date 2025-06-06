@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1.16] - 2025-06-06
+
+### Fixed
+
+- Upgraded to .Net 9 as the latest Docker image was not compatible with .Net 8. (#204)
+
 ## [1.1.0.12] - 2025-06-05
 
 ### Fixed
@@ -43,7 +49,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0.1] - 2024-03-22
 
-[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.1.0.12...HEAD
+[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.1.1.16...HEAD
+[1.1.1.16]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.1.0.12...1.1.1.16
 [1.1.0.12]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.9.11...1.1.0.12
 [1.0.9.11]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.8.10...1.0.9.11
 [1.0.8.10]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.7.9...1.0.8.10
