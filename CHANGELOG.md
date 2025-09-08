@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added GH_TOKEN environment variable to all GitHub Action workflows for consistent token access (#215)
 - Set up copilot environment (#225)
 
+### Fixed
+
+- Reduced Information logging calls in WriteJsonCommand.cs to comply with SonarQube rule S6664 (#230)
+
 ## [1.1.1.16] - 2025-06-06
 
 ### Fixed
