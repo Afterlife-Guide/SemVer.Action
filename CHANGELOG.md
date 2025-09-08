@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed security vulnerability by preventing direct use of user-controlled data in workflow run blocks to prevent command injection
+
 ### Changed
 
 - Migrated from `thomaseizinger/keep-a-changelog-new-release` to `baynezy/ChangeLogger.Action` (#210)
@@ -21,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Updated all external GitHub Actions to use full commit SHA hashes instead of version tags for improved security (#235)
+- Updated Docker image to run as non-root user instead of root user to improve security posture (#233)
 
 ## [1.1.1.16] - 2025-06-06
 
