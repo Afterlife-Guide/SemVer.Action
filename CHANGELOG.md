@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0.13] - 2025-09-08
+
 ### Fixed
 
 - Fixed security vulnerability by preventing direct use of user-controlled data in workflow run blocks to prevent command injection
@@ -69,7 +71,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0.1] - 2024-03-22
 
-[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.1.1.16...HEAD
+[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.2.0.13...HEAD
+[1.2.0.13]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.1.1.16...1.2.0.13
 [1.1.1.16]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.1.0.12...1.1.1.16
 [1.1.0.12]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.9.11...1.1.0.12
 [1.0.9.11]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.8.10...1.0.9.11
