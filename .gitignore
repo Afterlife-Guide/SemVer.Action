@@ -94,4 +94,4 @@ fabric.properties
 *.DotSettings.user
 
 #Verify
-*.received.txt
+*.received.txtTestResults/

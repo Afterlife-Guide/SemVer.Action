@@ -7,5 +7,8 @@ COPY . ./
 RUN dotnet publish ./src/SemVer.Json/SemVer.Json.csproj -c Release -o out --no-self-contained
 
 FROM mcr.microsoft.com/dotnet/runtime:9.0-alpine
+RUN addgroup -S nonroot \
+    && adduser -S nonroot -G nonroot
 COPY --from=build-env /app/out .
+USER nonroot
 ENTRYPOINT [ "dotnet", "/SemVer.Json.dll" ]
