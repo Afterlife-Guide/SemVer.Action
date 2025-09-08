@@ -22,6 +22,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Reduced Information logging calls in WriteJsonCommand.cs to comply with SonarQube rule S6664 (#230)
 
+### Security
+
+- Updated Docker image to run as non-root user instead of root user to improve security posture (#233)
+
 ## [1.1.1.16] - 2025-06-06
 
 ### Fixed
