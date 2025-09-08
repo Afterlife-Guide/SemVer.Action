@@ -95,3 +95,7 @@ fabric.properties
 
 #Verify
 *.received.txt
+
+# Test Results
+TestResults/
+**/TestResults/

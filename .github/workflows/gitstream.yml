@@ -28,6 +28,9 @@ on:
           required: false
           default: ''
 
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   gitStream:
     timeout-minutes: 5
@@ -35,7 +38,7 @@ jobs:
     name: gitStream workflow automation
     steps:
       - name: Evaluate Rules
-        uses: linear-b/gitstream-github-action@v1
+        uses: linear-b/gitstream-github-action@33597e470d599adf6fbc00360897d2aa46e4064b
         id: rules-engine
         with:
           full_repository: ${{ github.event.inputs.full_repository }}

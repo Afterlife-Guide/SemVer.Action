@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0.13] - 2025-09-08
+
+### Fixed
+
+- Fixed security vulnerability by preventing direct use of user-controlled data in workflow run blocks to prevent command injection
+
+### Changed
+
+- Migrated from `thomaseizinger/keep-a-changelog-new-release` to `baynezy/ChangeLogger.Action` (#210)
+- Added GH_TOKEN environment variable to all GitHub Action workflows for consistent token access (#215)
+- Set up copilot environment (#225)
+- Updated Dockerfile to use uppercase 'AS' in multi-stage builds for SonarQube compliance (#229)
+
+### Fixed
+
+- Reduced Information logging calls in WriteJsonCommand.cs to comply with SonarQube rule S6664 (#230)
+
+### Security
+
+- Updated all external GitHub Actions to use full commit SHA hashes instead of version tags for improved security (#235)
+- Updated Docker image to run as non-root user instead of root user to improve security posture (#233)
+
 ## [1.1.1.16] - 2025-06-06
 
 ### Fixed
@@ -49,7 +71,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0.1] - 2024-03-22
 
-[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.1.1.16...HEAD
+[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.2.0.13...HEAD
+[1.2.0.13]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.1.1.16...1.2.0.13
 [1.1.1.16]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.1.0.12...1.1.1.16
 [1.1.0.12]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.9.11...1.1.0.12
 [1.0.9.11]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.0.8.10...1.0.9.11

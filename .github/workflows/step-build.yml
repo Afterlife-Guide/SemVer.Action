@@ -18,29 +18,29 @@ jobs:
       run: |
         echo "Branch: ${{ inputs.checkout-ref }}"
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
       with:
         ref: ${{ inputs.checkout-ref }}
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v4.3.1
+      uses: actions/setup-dotnet@d4c94342e560b34958eacfc5d055d21461ed1c5d
       with:
         dotnet-version: 9.0.x
     - name: Restore
-      uses: cake-build/cake-action@v3
+      uses: cake-build/cake-action@5167c3f6a9e15c76f009de2acdfb9488552bc0b9
       with:
         target: Restore
     - name: Build
-      uses: cake-build/cake-action@v3
+      uses: cake-build/cake-action@5167c3f6a9e15c76f009de2acdfb9488552bc0b9
       with:
         target: Build
         arguments: |
           versionNumber: ${{inputs.version}}
     - name: Run tests
-      uses: cake-build/cake-action@v3
+      uses: cake-build/cake-action@5167c3f6a9e15c76f009de2acdfb9488552bc0b9
       with:
         target: Test
     - name: Publish Unit Test Results
       if: ${{ github.actor != 'dependabot[bot]' }}
-      uses: EnricoMi/publish-unit-test-result-action/linux@v2
+      uses: EnricoMi/publish-unit-test-result-action/linux@3a74b2957438d0b6e2e61d67b05318aa25c9e6c6
       with:
         files: "**/TestResults/*.xml"

@@ -10,12 +10,15 @@ on:
       - created
       - edited
 
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   add-blocked-label:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
       - name: Add blocked label if issue is blocked
         run: |
           body=$BODY

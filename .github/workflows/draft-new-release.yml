@@ -13,18 +13,21 @@ on:
         description: 'The patch version you want to release.'
         required: true
 
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
 
   draft-new-release:
     name: "Draft a new release"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
       - name: Create release branch
         run: git checkout -b release/${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}
         
       - name: Update Version Number
-        uses: Afterlife-Guide/SemVer.Action@1.0.9.11
+        uses: Afterlife-Guide/SemVer.Action@23e59d321ba2dbb6736fd78076f9b279fecbeaf2
         with:
           path: semver.json
           major-version: ${{ github.event.inputs.major_version }}
@@ -33,7 +36,7 @@ jobs:
           build-version: ${{ github.run_number }}
 
       - name: Update changelog
-        uses: thomaseizinger/keep-a-changelog-new-release@3.1.0
+        uses: baynezy/ChangeLogger.Action@1e22c0074e1cec3c97ca3416db7ab79924310492
         with:
           tag: ${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}
         
