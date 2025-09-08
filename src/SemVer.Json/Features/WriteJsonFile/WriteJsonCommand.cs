@@ -13,8 +13,6 @@ public class WriteJsonCommand(IFileWriter fileWriter, ILogger<WriteJsonCommand> 
 
     public int Write(WriteJsonOptions options)
     {
-        logger.LogInformation("Version Number to write: {Major}.{Minor}.{Patch}.{Build}", options.Major, options.Minor, options.Patch, options.Build);
-        
         var semVer = new SemVer
         {
             Major = options.Major,
@@ -24,7 +22,7 @@ public class WriteJsonCommand(IFileWriter fileWriter, ILogger<WriteJsonCommand> 
         };
         var json = JsonSerializer.Serialize(semVer, _jsonSerializerOptions);
         
-        logger.LogInformation("Json to write: {Json}", json);
+        logger.LogInformation("Writing version {Major}.{Minor}.{Patch}.{Build} as JSON: {Json}", options.Major, options.Minor, options.Patch, options.Build, json);
         logger.LogInformation("Writing to file: {Path}", options.Path);
         
         fileWriter.WriteJson(json, options.Path);

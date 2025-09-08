@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Set up copilot environment (#225)
 - Updated Dockerfile to use uppercase 'AS' in multi-stage builds for SonarQube compliance (#229)
 
+### Fixed
+
+- Reduced Information logging calls in WriteJsonCommand.cs to comply with SonarQube rule S6664 (#230)
+
 ## [1.1.1.16] - 2025-06-06
 
 ### Fixed
