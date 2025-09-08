@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Reduced Information logging calls in WriteJsonCommand.cs to comply with SonarQube rule S6664 (#230)
 
+### Security
+
+- Updated all external GitHub Actions to use full commit SHA hashes instead of version tags for improved security (#235)
+
 ## [1.1.1.16] - 2025-06-06
 
 ### Fixed
