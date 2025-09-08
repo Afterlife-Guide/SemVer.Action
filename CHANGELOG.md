@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Migrated from `thomaseizinger/keep-a-changelog-new-release` to `baynezy/ChangeLogger.Action` (#210)
 - Added GH_TOKEN environment variable to all GitHub Action workflows for consistent token access (#215)
 - Set up copilot environment (#225)
+- Updated Dockerfile to use uppercase 'AS' in multi-stage builds for SonarQube compliance (#229)
 
 ## [1.1.1.16] - 2025-06-06
 
