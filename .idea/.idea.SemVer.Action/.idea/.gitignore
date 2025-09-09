@@ -16,3 +16,6 @@
 
 # sonarlint
 /sonarlint/
+
+# copilot
+copilot.data.*
