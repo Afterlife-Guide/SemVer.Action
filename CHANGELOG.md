@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+
+- Improved Docker container security by dynamically creating and running as a non-root user with UID/GID matching the GitHub Actions workspace, following SonarQube recommendations. This prevents privilege escalation and ensures safe file access. [#233]
+
 ## [1.2.1.19] - 2025-09-09
 
 ## Changed
