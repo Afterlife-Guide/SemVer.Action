@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed Docker container permissions to allow non-root user to write to `/github/workspace` and `/github/file_commands` directories (#240)
+
 ## [1.2.0.13] - 2025-09-08
 
 ### Fixed
