@@ -26,21 +26,21 @@ jobs:
       with:
         dotnet-version: 9.0.x
     - name: Restore
-      uses: cake-build/cake-action@5167c3f6a9e15c76f009de2acdfb9488552bc0b9
+      uses: cake-build/cake-action@d218f1133bb74a1df0b08c89cfd8fc100c09e1a0
       with:
         target: Restore
     - name: Build
-      uses: cake-build/cake-action@5167c3f6a9e15c76f009de2acdfb9488552bc0b9
+      uses: cake-build/cake-action@d218f1133bb74a1df0b08c89cfd8fc100c09e1a0
       with:
         target: Build
         arguments: |
           versionNumber: ${{inputs.version}}
     - name: Run tests
-      uses: cake-build/cake-action@5167c3f6a9e15c76f009de2acdfb9488552bc0b9
+      uses: cake-build/cake-action@d218f1133bb74a1df0b08c89cfd8fc100c09e1a0
       with:
         target: Test
     - name: Publish Unit Test Results
       if: ${{ github.actor != 'dependabot[bot]' }}
-      uses: EnricoMi/publish-unit-test-result-action/linux@3a74b2957438d0b6e2e61d67b05318aa25c9e6c6
+      uses: EnricoMi/publish-unit-test-result-action/linux@34d7c956a59aed1bfebf31df77b8de55db9bbaaf
       with:
         files: "**/TestResults/*.xml"
