@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <PackageReference Include="FluentAssertions" Version="7.2.0" />
-      <PackageReference Include="FsCheck.Xunit" Version="3.3.1" />
+      <PackageReference Include="FsCheck.Xunit" Version="3.3.2" />
       <PackageReference Include="JunitXml.TestLogger" Version="7.0.2" />
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
       <PackageReference Include="NSubstitute" Version="5.3.0" />
