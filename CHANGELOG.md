@@ -9,8 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Upgraded all projects to .NET 10
-- Updated CI/CD pipelines to use .NET 10.0.x
+- Upgraded all projects and CI/CD pipelines to .NET 10 (#288)
 
 ## [1.2.2.14] - 2025-11-07
 
