@@ -99,3 +99,6 @@ fabric.properties
 # Test Results
 TestResults/
 **/TestResults/
+
+# Dotnet tools manifest
+dotnet-tools.json
