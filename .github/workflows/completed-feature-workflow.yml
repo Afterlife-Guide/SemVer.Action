@@ -22,8 +22,11 @@ jobs:
         run: echo "issue=$(echo "$HEAD_REF" | sed 's|[^0-9]||g')" >> $GITHUB_OUTPUT
         id: extract_issue
       - name: Output Issue Number
-        run: echo "Issue Number- ${{ steps.extract_issue.outputs.issue }}"
+        env:
+          ISSUE_NUMBER: ${{ steps.extract_issue.outputs.issue }}
+        run: echo "Issue Number- $ISSUE_NUMBER"
       - name: Update Labels
-        run: gh issue edit ${{ steps.extract_issue.outputs.issue }} --add-label "status:next release" --remove-label "status:in progress"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ steps.extract_issue.outputs.issue }}
+        run: gh issue edit $ISSUE_NUMBER --add-label "status:next release" --remove-label "status:in progress"

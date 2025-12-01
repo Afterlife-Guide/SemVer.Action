@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+
+- Fixed command injection vulnerabilities in GitHub Actions workflows by moving user-controlled data to environment variables instead of using them directly in run blocks
+
 ## [1.3.0.15] - 2025-11-18
 
 ### Changed
