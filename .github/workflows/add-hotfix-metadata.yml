@@ -1,0 +1,57 @@
+name: Add HotFix Metadata
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  get-version:
+    if: startsWith(github.head_ref, 'hotfix/')
+    uses: ./.github/workflows/step-version.yml
+    
+  update-metadata:
+    if: github.event.action == 'opened'
+    needs: [get-version]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Increment Version
+        id: increment_version
+        run: |
+          echo "patch_version=$(($(cat semver.json | jq -r '.patch')+1))" > $GITHUB_OUTPUT
+      - name: Store New Version
+        uses: Afterlife-Guide/SemVer.Action@288a02559813fbd67393b5bd001cd796f1665905
+        with:
+          path: semver.json
+          major-version: ${{ needs.get-version.outputs.major }}
+          minor-version: ${{ needs.get-version.outputs.minor }}
+          patch-version: ${{ steps.increment_version.outputs.patch_version }}
+          build-version: ${{ github.run_number }}
+      - name: Update changelog
+        uses: baynezy/ChangeLogger.Action@f714b7a6bcb0610dedb551cdc16a5adc0a775972
+        with:
+          tag: ${{ needs.get-version.outputs.major }}.${{ needs.get-version.outputs.minor }}.${{ steps.increment_version.outputs.patch_version }}.${{ github.run_number }}
+          
+      - name: Update docker image tag version in action.yml
+        run: |
+          sed -i "s/image: 'docker:\/\/ghcr.io\/afterlife-guide\/semver.action:.*/image: 'docker:\/\/ghcr.io\/afterlife-guide\/semver.action:${{ needs.get-version.outputs.major }}.${{ needs.get-version.outputs.minor }}.${{ steps.increment_version.outputs.patch_version }}.${{ github.run_number }}'/" action.yml
+          
+      - name: Commit Changes
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "no-reply@after-life.co"
+          git add CHANGELOG.md semver.json action.yml
+          git commit --message "Bump Version to ${{ needs.get-version.outputs.major }}.${{ needs.get-version.outputs.minor }}.${{ steps.increment_version.outputs.patch_version }}.${{ github.run_number }}"
+
+      - name: Push Version
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: git push origin "$HEAD_REF"
