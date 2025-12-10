@@ -1,11 +1,9 @@
 name: Deploy Release Branch
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  push:
     branches:
-      - master
-      - develop
+      - release/**
     paths:
       - 'src/**'
       - 'test/**'
@@ -20,7 +18,6 @@ env:
 
 jobs:
   get-version:
-    if: startsWith(github.head_ref, 'release/')
     uses: ./.github/workflows/step-version.yml
   
   build:
