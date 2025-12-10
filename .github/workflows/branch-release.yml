@@ -4,13 +4,6 @@ on:
   push:
     branches:
       - release/**
-    paths:
-      - 'src/**'
-      - 'test/**'
-      - '**.sln'
-      - '**.cake'
-      - '.github/workflows/branch-release.yml'
-      - '.github/workflows/step-*.yml'
   workflow_dispatch:
 
 env:
