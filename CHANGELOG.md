@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.1.17] - 2025-12-10
+
+### Fixed
+
+- Bug with deployment (#306)
+
+### Security
+
+- Fixed command injection vulnerabilities in GitHub Actions workflows by moving user-controlled data to environment variables instead of using them directly in run blocks (#300)
+
 ## [1.3.0.15] - 2025-11-18
 
 ### Changed
@@ -85,7 +95,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0.1] - 2024-03-22
 
-[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.3.0.15...HEAD
+[unreleased]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.3.1.17...HEAD
+[1.3.1.17]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.3.0.15...1.3.1.17
 [1.3.0.15]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.2.2.14...1.3.0.15
 [1.2.2.14]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.2.1.19...1.2.2.14
 [1.2.1.19]: https://github.com/Afterlife-Guide/SemVer.Action/compare/1.2.0.13...1.2.1.19
