@@ -1,4 +1,4 @@
-﻿name: Blocked Issue Labeler
+name: Blocked Issue Labeler
 
 on:
   issues:
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
       - name: Add blocked label if issue is blocked
         run: |
           body=$BODY

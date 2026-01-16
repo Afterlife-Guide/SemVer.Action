@@ -22,7 +22,7 @@ jobs:
       with:
         ref: ${{ inputs.checkout-ref }}
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@2016bd2012dba4e32de620c46fe006a3ac9f0602
+      uses: actions/setup-dotnet@baa11fbfe1d6520db94683bd5c7a3818018e4309
       with:
         dotnet-version: 10.0.x
     - name: Restore
@@ -41,6 +41,6 @@ jobs:
         target: Test
     - name: Publish Unit Test Results
       if: ${{ github.actor != 'dependabot[bot]' }}
-      uses: EnricoMi/publish-unit-test-result-action/linux@34d7c956a59aed1bfebf31df77b8de55db9bbaaf
+      uses: EnricoMi/publish-unit-test-result-action/linux@27d65e188ec43221b20d26de30f4892fad91df2f
       with:
         files: "**/TestResults/*.xml"
