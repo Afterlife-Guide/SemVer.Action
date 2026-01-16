@@ -34,7 +34,7 @@ outputs:
     description: 'The full version number'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/afterlife-guide/semver.action:1.3.1.17'
+  image: 'docker://ghcr.io/afterlife-guide/semver.action:1.3.2.18'
   args:
     - ${{ (inputs.major-version == '0' && inputs.minor-version == '0' && inputs.patch-version == '0' && inputs.build-version == '0') && 'read' || 'write' }}
     - '-p'
