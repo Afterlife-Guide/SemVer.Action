@@ -22,7 +22,7 @@ jobs:
     name: "Draft a new release"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           token: ${{ secrets.CREATE_PR_TOKEN }}
           fetch-depth: 0
@@ -35,7 +35,7 @@ jobs:
         run: git checkout -b release/$MAJOR_VERSION.$MINOR_VERSION.$PATCH_VERSION.$RUN_NUMBER
         
       - name: Update Version Number
-        uses: Afterlife-Guide/SemVer.Action@9dc4921011b4c29d63259b6bbd6d7322410e2e91
+        uses: Afterlife-Guide/SemVer.Action@dbf2fca7a9c13acae677a3a7924aa5b18cab1543
         with:
           path: semver.json
           major-version: ${{ github.event.inputs.major_version }}
