@@ -44,7 +44,7 @@ jobs:
           build-version: ${{ github.run_number }}
 
       - name: Update changelog
-        uses: baynezy/ChangeLogger.Action@bf11617aa9e3eb16b8b13d0b9bc196b7c1503bee
+        uses: baynezy/ChangeLogger.Action@5c3d26d530effb827c1222ad1abcabf37afdf408
         with:
           tag: ${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}
         
