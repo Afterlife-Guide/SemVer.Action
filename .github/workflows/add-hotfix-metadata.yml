@@ -36,7 +36,7 @@ jobs:
           patch-version: ${{ steps.increment_version.outputs.patch_version }}
           build-version: ${{ github.run_number }}
       - name: Update changelog
-        uses: baynezy/ChangeLogger.Action@5c3d26d530effb827c1222ad1abcabf37afdf408
+        uses: baynezy/ChangeLogger.Action@6e3ad430f08e13698bb01027a13ba4349b0143cc
         with:
           tag: ${{ needs.get-version.outputs.major }}.${{ needs.get-version.outputs.minor }}.${{ steps.increment_version.outputs.patch_version }}.${{ github.run_number }}
           
