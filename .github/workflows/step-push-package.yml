@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
       
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121
+        uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -31,7 +31,7 @@ jobs:
           echo "container_name=$(echo 'SemVer.Action' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
           
       - name: Build and push Docker image
-        uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f
+        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf
         with:
           context: .
           file: ./src/SemVer.Json/Dockerfile
