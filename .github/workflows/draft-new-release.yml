@@ -35,7 +35,7 @@ jobs:
         run: git checkout -b release/$MAJOR_VERSION.$MINOR_VERSION.$PATCH_VERSION.$RUN_NUMBER
         
       - name: Update Version Number
-        uses: Afterlife-Guide/SemVer.Action@bcdf21cf90d32769f38fd17d52280baad006e8e3
+        uses: Afterlife-Guide/SemVer.Action@64735fc76aaefe739484e00949686ba8a1ded868
         with:
           path: semver.json
           major-version: ${{ github.event.inputs.major_version }}
@@ -44,7 +44,7 @@ jobs:
           build-version: ${{ github.run_number }}
 
       - name: Update changelog
-        uses: baynezy/ChangeLogger.Action@6e3ad430f08e13698bb01027a13ba4349b0143cc
+        uses: baynezy/ChangeLogger.Action@a2e1ff9fe5789c7def3cc48db302e192d2896442
         with:
           tag: ${{ github.event.inputs.major_version }}.${{ github.event.inputs.minor_version }}.${{ github.event.inputs.patch_version }}.${{ github.run_number }}
         
