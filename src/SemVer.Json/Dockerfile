@@ -1,5 +1,5 @@
-﻿# Set the base image as the .NET 7.0 SDK (this includes the runtime)
-FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build-env
+# Set the base image as the .NET 7.0 SDK (this includes the runtime)
+FROM mcr.microsoft.com/dotnet/sdk:11.0 AS build-env
 
 # Copy everything and publish the release (publish implicitly restores and builds)
 WORKDIR /app
